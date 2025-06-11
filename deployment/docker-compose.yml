@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0.8
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+      - ./init-db:/docker-entrypoint-initdb.d
+    networks:
+      - mongo_network
+  challenge:
+    build: .
+    image: tui/meta-challenge:latest
+    container_name: challenge
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongodb
+
+volumes:
+  mongodb_data:
+
+networks:
+  mongo_network:
+    driver: bridge
