@@ -1,4 +1,4 @@
-package tui.meta.challenge.quotes;
+package tui.meta.challenge.quotes.controller;
 
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;

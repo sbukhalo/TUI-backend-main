@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "9f3903c5-c831-4dbd-b3c8-b7f61828f3d1",
+		"_postman_id": "52c77bb5-0167-4361-b59c-74f508debdea",
 		"name": "Meta coding challenge",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "28990442"
+		"_exporter_id": "5542264",
+		"_collection_link": "https://crimson-desert-423180.postman.co/workspace/tmp~eaf759cf-09ee-482f-85cf-79090016d44b/collection/5542264-52c77bb5-0167-4361-b59c-74f508debdea?action=share&source=collection_link&creator=5542264"
 	},
 	"item": [
 		{
@@ -38,6 +39,70 @@
 					"port": "8080",
 					"path": [
 						"hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QuotesById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/quotes/5eb17aadb69dc744b4e70d31",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"quotes",
+						"5eb17aadb69dc744b4e70d31"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QuotesAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/quotes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"quotes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QuotesByAuthor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/quotes?author=Francis+Bacon",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"quotes"
+					],
+					"query": [
+						{
+							"key": "author",
+							"value": "Francis+Bacon"
+						}
 					]
 				}
 			},

@@ -1,33 +1,59 @@
 plugins {
-	id 'java'
-	id 'com.palantir.docker' version '0.36.0'
-	id 'org.springframework.boot' version '3.2.4'
-	id 'io.spring.dependency-management' version '1.1.4'
+    id 'java'
+    id 'com.palantir.docker' version '0.36.0'
+    id 'org.springframework.boot' version '3.2.4'
+    id 'io.spring.dependency-management' version '1.1.4'
 }
 
 group = "tui.meta.challenge"
 version = "0.0.1-SNAPSHOT"
 
 java {
-	sourceCompatibility = '17'
+    sourceCompatibility = '17'
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    //spring data
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+
+    //lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
 }
 
 tasks.named('test') {
-	useJUnitPlatform()
+    useJUnitPlatform {
+        filter {
+            includeTestsMatching "*Test"
+            includeTestsMatching "*Tests"
+            excludeTestsMatching "*IT"
+        }
+    }
+}
+
+// integration tests
+tasks.register('it', Test) {
+    useJUnitPlatform {
+        filter {
+            includeTestsMatching "*IT"
+        }
+    }
+    outputs.upToDateWhen { false }
+    shouldRunAfter test
 }
 
 docker {
-	name 'tui/meta-challenge'
-	copySpec.from("build").into("build")
-	noCache true
+    name 'tui/meta-challenge'
+    copySpec.from("build").into("build")
+    noCache true
 }

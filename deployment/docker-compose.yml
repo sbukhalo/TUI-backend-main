@@ -19,6 +19,10 @@ services:
       - "8080:8080"
     depends_on:
       - mongodb
+    environment:
+      - spring.data.mongodb.uri=mongodb://mongodb:27017/challenge
+    networks:
+      - mongo_network
 
 volumes:
   mongodb_data:
