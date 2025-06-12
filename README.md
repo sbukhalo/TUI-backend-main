@@ -10,13 +10,13 @@ I finished the task, pls see the key points:
 original [collection](spring-boot-template/Meta%20coding%20challenge.postman_collection.json) has been updated (I didn't create separate Java tests for that)
 - Non-functional requirements checked with an integration test
 [QuoteControllerNonFunctionalIT](spring-boot-template/src/test/java/tui/meta/challenge/quotes/controller/QuoteControllerNonFunctionalIT.java). Run
-  `./gradlew it` when environment is up and running
+  `./gradlew it` when mongo is up and running
 - I didn't add any indexes to Mongo because the app runs fast enough on my local machine. 
-There is no any requirements for hardware, so my assumption your env is fast as well
+There are no any requirements for hardware, so my assumption your env is fast as well
 - I didn't add any additional DTO objects on the service layer, because it's excessive for the task, in case of need, 
 I would introduce [Mapstruct](https://mapstruct.org)
-- Since this is a test task, the solution contains a minimum of code, some things that I would use in production may be 
-missed (such as logging, using interfaces on service layers, DTOs, etc)
+- The solution contains a minimum of code, some things that usually used in production may be 
+missed (such as interfaces on service layer, DTOs, etc)
 
 
 # Code Challenge – Back-End Software Developer @ TUI 
