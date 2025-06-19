@@ -18,6 +18,18 @@ I would introduce [Mapstruct](https://mapstruct.org)
 - The solution contains a minimum of code, some things that usually used in production may be 
 missed (such as interfaces on service layer, DTOs, etc)
 
+### The app can be run exactly as described in the original README file:
+1. From the `spring-boot-template` directory run:
+```sh
+	gradlew clean build
+	gradlew docker
+```
+2. From the deployment directory:
+```sh
+    docker-compose up -d
+```
+
+
 
 # Code Challenge – Back-End Software Developer @ TUI 
 
