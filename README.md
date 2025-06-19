@@ -12,7 +12,7 @@ original [collection](spring-boot-template/Meta%20coding%20challenge.postman_col
 [QuoteControllerNonFunctionalIT](spring-boot-template/src/test/java/tui/meta/challenge/quotes/controller/QuoteControllerNonFunctionalIT.java). Run
   `./gradlew it` when mongo is up and running
 - I didn't add any indexes to Mongo because the app runs fast enough on my local machine. 
-There are no any requirements for hardware, so my assumption your env is fast as well
+There are no requirements for hardware, so my assumption your env is fast as well
 - I didn't add any additional DTO objects on the service layer, because it's excessive for the task, in case of need, 
 I would introduce [Mapstruct](https://mapstruct.org)
 - The solution contains a minimum of code, some things that usually used in production may be 
@@ -21,12 +21,12 @@ missed (such as interfaces on service layer, DTOs, etc)
 ### The app can be run exactly as described in the original README file:
 1. From the `spring-boot-template` directory run:
 ```sh
-	gradlew clean build
-	gradlew docker
+gradlew clean build
+gradlew docker
 ```
 2. From the deployment directory:
 ```sh
-    docker-compose up -d
+docker-compose up -d
 ```
 
 
